@@ -53,7 +53,7 @@ RUN apk --no-cache update \
     && chmod +x /usr/local/bin/aws-iam-authenticator
 USER ${user}
 ENV AGENT_WORKDIR=${AGENT_WORKDIR}
-RUN mkdir /home/${user}/.jenkins && mkdir -p ${AGENT_WORKDIR}
+RUN mkdir /home/${user}/.jenkins && mkdir -p ${AGENT_WORKDIR} && mkdir /home/${user}/.aws && mkdir /home/${user}/.kube
 
 VOLUME /home/${user}/.jenkins
 VOLUME ${AGENT_WORKDIR}
